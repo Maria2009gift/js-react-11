@@ -1,20 +1,31 @@
-import React, {Component} from 'react'
-import { Item, Image } from './ImageGalleryItemStyled';
+import React, { Component } from "react";
+import { Item } from "./ImageGalleryItemStyled";
 
 class ImageGalleryItem extends Component {
+  state = {
+    modalObject: "",
+  };
 
+  takeImage = (event) => {
+    this.setState({ modalObject: event.currentTarget.alt });
+    console.log(event.currentTarget.alt);
+    
+  };
 
-    render () {
-        return (
-            <Item>
-                {this.props.data.map((image) => (
-                    <div className="gallery-item">
-                        <Image src={image.webformatURL} alt="" />
-                    </div>
-                ))}
-            </Item>
-        );
-      }
+  render() {
+    return (
+      <Item key={this.props.data.id} onClick={this.takeImage}>
+        {
+          <img
+            src={this.props.data.images.downsized.url}
+            alt={this.props.data}
+            width="400px"
+            height="400px"
+          />
+        }
+      </Item>
+    );
+  }
 }
-  
-  export default ImageGalleryItem
+
+export default ImageGalleryItem;

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Container } from './SearchBarStyled'
 
 class SearchBar extends Component {
 
@@ -17,7 +18,7 @@ class SearchBar extends Component {
 
     render() {
       return (
-        <header className="searchbar">
+        <Container className="searchbar">
             <form className="form" onSubmit={this.sendSearchValue}>
                 <button type="submit" className="button">
                 <span className="button-label">Search</span>
@@ -34,7 +35,7 @@ class SearchBar extends Component {
                 placeholder="Search images and photos"
                 />
             </form>
-        </header>
+        </Container>
       );
     }
   }
